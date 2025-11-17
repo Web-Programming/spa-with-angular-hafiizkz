@@ -1,13 +1,12 @@
 import { Routes } from '@angular/router';
-import { Home as HomeComponent} from './home/home';
+import { Home as HomeComponent } from './home/home';
 import { Profile } from './profile/profile';
 import { Login } from './login/login';
 import { Register } from './register/register';
 import { Contact } from './contact/contact';
+import { Detail } from './detail/detail';  // ← Import Detail Component
 
 export const routes: Routes = [
-    //mengatur halaman aplikasi
-
     {
         path : "",
         component : HomeComponent,
@@ -15,21 +14,28 @@ export const routes: Routes = [
     },
     {
         path : "profile",
-        component : Profile
-        // title : 'Profile Page'
+        component : Profile,
     },
     {
         path : "login",
-        component : Login
+        component : Login,
     },
     {
         path : "register",
-        component : Register
+        component : Register,
     },
     {
         path : "contact",
-        component : Contact
+        component : Contact,
+    },
+    {
+        path: "property/:id",           // ← Route dengan parameter
+        component: Detail,
+        title: 'Detail Property - Griya MDP'
+    },
+    {
+        path: "**",                      // ← Wildcard untuk 404
+        redirectTo: "",
+        pathMatch: 'full'
     }
-
-
 ];
